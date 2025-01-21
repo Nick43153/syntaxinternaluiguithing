@@ -1,0 +1,334 @@
+-- Gui to Lua
+-- made by cool syntax owner guy (nixkio)
+-- Version: 3.6
+
+-- Instances:
+
+local SYNTAXUI = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Top = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local CLOSE = Instance.new("TextButton")
+local MINI = Instance.new("TextButton")
+local Bottom = Instance.new("Frame")
+local EXE = Instance.new("TextButton")
+local CLR = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
+local editorframe = Instance.new("ScrollingFrame")
+local source = Instance.new("TextBox")
+local lines = Instance.new("TextLabel")
+local linesborder = Instance.new("TextLabel")
+local OPEN = Instance.new("TextButton")
+
+-- Properties:
+
+SYNTAXUI.Name = "SYNTAXUI"
+SYNTAXUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+SYNTAXUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = SYNTAXUI
+Main.BackgroundColor3 = Color3.fromRGB(15, 0, 15)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.354231983, 0, 0.279156327, 0)
+Main.Size = UDim2.new(0, 341, 0, 355)
+
+Top.Name = "Top"
+Top.Parent = Main
+Top.BackgroundColor3 = Color3.fromRGB(20, 0, 20)
+Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Top.BorderSizePixel = 0
+Top.Size = UDim2.new(0, 341, 0, 38)
+
+TextLabel.Parent = Top
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0381231681, 0, 0.157894731, 0)
+TextLabel.Size = UDim2.new(0, 106, 0, 26)
+TextLabel.Font = Enum.Font.Unknown
+TextLabel.Text = "[syntax]"
+TextLabel.TextColor3 = Color3.fromRGB(50, 0, 50)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+CLOSE.Name = "CLOSE"
+CLOSE.Parent = Top
+CLOSE.BackgroundColor3 = Color3.fromRGB(50, 0, 0)
+CLOSE.BackgroundTransparency = 0.500
+CLOSE.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CLOSE.BorderSizePixel = 0
+CLOSE.Position = UDim2.new(0.898427129, 0, 0.184210524, 0)
+CLOSE.Size = UDim2.new(0, 25, 0, 25)
+CLOSE.Font = Enum.Font.GothamBold
+CLOSE.Text = ""
+CLOSE.TextColor3 = Color3.fromRGB(70, 0, 0)
+CLOSE.TextScaled = true
+CLOSE.TextSize = 14.000
+CLOSE.TextWrapped = true
+
+MINI.Name = "MINI"
+MINI.Parent = Top
+MINI.BackgroundColor3 = Color3.fromRGB(50, 50, 0)
+MINI.BackgroundTransparency = 0.500
+MINI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MINI.BorderSizePixel = 0
+MINI.Position = UDim2.new(0.797653973, 0, 0.184210524, 0)
+MINI.Size = UDim2.new(0, 25, 0, 25)
+MINI.Font = Enum.Font.GothamBold
+MINI.Text = ""
+MINI.TextColor3 = Color3.fromRGB(70, 70, 0)
+MINI.TextScaled = true
+MINI.TextSize = 14.000
+MINI.TextWrapped = true
+
+Bottom.Name = "Bottom"
+Bottom.Parent = Main
+Bottom.BackgroundColor3 = Color3.fromRGB(20, 0, 20)
+Bottom.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Bottom.BorderSizePixel = 0
+Bottom.Position = UDim2.new(0, 0, 0.881690145, 0)
+Bottom.Size = UDim2.new(0, 341, 0, 42)
+
+EXE.Name = "EXE"
+EXE.Parent = Bottom
+EXE.BackgroundColor3 = Color3.fromRGB(50, 0, 50)
+EXE.BackgroundTransparency = 0.500
+EXE.BorderColor3 = Color3.fromRGB(0, 0, 0)
+EXE.BorderSizePixel = 0
+EXE.Position = UDim2.new(0.239880696, 0, 0.18568784, 0)
+EXE.Size = UDim2.new(0, 84, 0, 25)
+EXE.Font = Enum.Font.GothamBold
+EXE.Text = "EXECUTE"
+EXE.TextColor3 = Color3.fromRGB(70, 0, 70)
+EXE.TextScaled = true
+EXE.TextSize = 14.000
+EXE.TextWrapped = true
+
+CLR.Name = "CLR"
+CLR.Parent = Bottom
+CLR.BackgroundColor3 = Color3.fromRGB(50, 0, 50)
+CLR.BackgroundTransparency = 0.500
+CLR.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CLR.BorderSizePixel = 0
+CLR.Position = UDim2.new(0.518473089, 0, 0.18568784, 0)
+CLR.Size = UDim2.new(0, 84, 0, 25)
+CLR.Font = Enum.Font.GothamBold
+CLR.Text = "CLEAR"
+CLR.TextColor3 = Color3.fromRGB(70, 0, 70)
+CLR.TextScaled = true
+CLR.TextSize = 14.000
+CLR.TextWrapped = true
+
+ImageLabel.Parent = Main
+ImageLabel.BackgroundColor3 = Color3.fromRGB(20, 0, 20)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.0381231681, 0, 0.0494278185, 27)
+ImageLabel.Size = UDim2.new(0, 317, 0, 261)
+ImageLabel.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+editorframe.Name = "editorframe"
+editorframe.Parent = ImageLabel
+editorframe.Active = true
+editorframe.BackgroundColor3 = Color3.fromRGB(20, 0, 20)
+editorframe.BorderColor3 = Color3.fromRGB(61, 61, 61)
+editorframe.BorderSizePixel = 0
+editorframe.Size = UDim2.new(1, 0, 1, 0)
+editorframe.ZIndex = 3
+editorframe.BottomImage = "rbxassetid://148970562"
+editorframe.CanvasSize = UDim2.new(0, 0, 10, 0)
+editorframe.BottomImage = "rbxassetid://148970562"
+editorframe.MidImage = "rbxassetid://148970562"
+editorframe.ScrollBarImageColor3 = Color3.fromRGB(152, 152, 152)
+editorframe.TopImage = "rbxassetid://148970562"
+editorframe.ScrollBarThickness = 5
+editorframe.TopImage = "rbxassetid://148970562"
+
+source.Name = "source"
+source.Parent = editorframe
+source.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+source.BackgroundTransparency = 1.000
+source.BorderColor3 = Color3.fromRGB(27, 42, 53)
+source.Position = UDim2.new(0, 46, 0, 0)
+source.Size = UDim2.new(0.929771006, 0, 1599.99841, 0)
+source.ZIndex = 3
+source.ClearTextOnFocus = false
+source.Font = Enum.Font.Code
+source.MultiLine = true
+source.PlaceholderColor3 = Color3.fromRGB(204, 204, 204)
+source.Text = ""
+source.TextColor3 = Color3.fromRGB(70, 0, 70)
+source.TextSize = 15.000
+source.TextWrapped = true
+source.TextXAlignment = Enum.TextXAlignment.Left
+source.TextYAlignment = Enum.TextYAlignment.Top
+
+lines.Name = "lines"
+lines.Parent = editorframe
+lines.BackgroundColor3 = Color3.fromRGB(30, 0, 30)
+lines.BorderColor3 = Color3.fromRGB(27, 42, 53)
+lines.BorderSizePixel = 0
+lines.Position = UDim2.new(0.0167938005, 0, 0.000109279856, 0)
+lines.Size = UDim2.new(-0.00305348169, 30, 255.999878, 0)
+lines.ZIndex = 4
+lines.Font = Enum.Font.Code
+lines.Text = "1"
+lines.TextColor3 = Color3.fromRGB(255, 255, 255)
+lines.TextSize = 15.000
+lines.TextYAlignment = Enum.TextYAlignment.Top
+
+linesborder.Name = "linesborder"
+linesborder.Parent = editorframe
+linesborder.BackgroundColor3 = Color3.fromRGB(30, 0, 30)
+linesborder.BorderColor3 = Color3.fromRGB(27, 42, 53)
+linesborder.BorderSizePixel = 0
+linesborder.Position = UDim2.new(9.3183445e-08, 0, -5.60984881e-06, 0)
+linesborder.Size = UDim2.new(-0.0290076341, 30, 256, 0)
+linesborder.ZIndex = 4
+linesborder.Font = Enum.Font.Code
+linesborder.Text = ""
+linesborder.TextColor3 = Color3.fromRGB(255, 255, 255)
+linesborder.TextSize = 15.000
+linesborder.TextYAlignment = Enum.TextYAlignment.Top
+
+OPEN.Name = "OPEN"
+OPEN.Parent = SYNTAXUI
+OPEN.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+OPEN.BackgroundTransparency = 0.500
+OPEN.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OPEN.BorderSizePixel = 0
+OPEN.Position = UDim2.new(-0.000151726897, 0, 0.431108803, 0)
+OPEN.Size = UDim2.new(0, 141, 0, 25)
+OPEN.Visible = false
+OPEN.Font = Enum.Font.GothamBold
+OPEN.Text = "XSYNX"
+OPEN.TextColor3 = Color3.fromRGB(70, 0, 70)
+OPEN.TextScaled = true
+OPEN.TextSize = 14.000
+OPEN.TextWrapped = true
+
+-- Scripts:
+
+local function EMFW_fake_script() -- CLOSE.LocalScript 
+	local script = Instance.new('LocalScript', CLOSE)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Parent:Destroy()
+	end)
+end
+coroutine.wrap(EMFW_fake_script)()
+local function AODQQD_fake_script() -- MINI.LocalScript 
+	local script = Instance.new('LocalScript', MINI)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Visible = false
+		script.Parent.Parent.Parent.Parent.OPEN.Visible = true
+	end)
+end
+coroutine.wrap(AODQQD_fake_script)()
+local function SBHNRN_fake_script() -- EXE.LocalScript 
+	local script = Instance.new('LocalScript', EXE)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		--script.Parent.Parent.Parent.Parent.serverside:FireServer(script.Parent.Parent.Parent.ImageLabel.editorframe.source.Text)
+		-- this is for serverside (no i am not making a serverside executor i am gonna make a require thing u can use backdoors with)
+		
+		assert(loadstring(script.Parent.Parent.Parent.ImageLabel.editorframe.source.Text))
+	end)
+end
+coroutine.wrap(SBHNRN_fake_script)()
+local function IVWRY_fake_script() -- CLR.LocalScript 
+	local script = Instance.new('LocalScript', CLR)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.ImageLabel.editorframe.source.Text = ""
+	end)
+end
+coroutine.wrap(IVWRY_fake_script)()
+local function TPDZL_fake_script() -- editorframe.LocalScript 
+	local script = Instance.new('LocalScript', editorframe)
+
+	local Source = script.Parent.source  -- The source TextLabel
+	local Lines = script.Parent.lines   -- The lines TextLabel
+	
+	-- Function to update line numbers based on the content of the Source
+	local function updateLineNumbers()
+		local s = Source.Text:gsub("\13", "") -- Normalize line endings
+		local lineCount = 1
+	
+		-- Count lines by finding \n characters
+		s:gsub("\n", function()
+			lineCount = lineCount + 1
+		end)
+	
+		-- Update the Lines TextLabel with line numbers
+		Lines.Text = ""
+		for i = 1, lineCount do
+			Lines.Text = Lines.Text .. i .. "\n"
+		end
+	end
+	
+	-- Initial update
+	updateLineNumbers()
+	
+	-- Connect the update function to changes in the Source TextLabel
+	Source.Changed:Connect(updateLineNumbers)
+	
+end
+coroutine.wrap(TPDZL_fake_script)()
+local function PBCC_fake_script() -- Main.Drag 
+	local script = Instance.new('LocalScript', Main)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+coroutine.wrap(PBCC_fake_script)()
+local function JVDWQ_fake_script() -- OPEN.LocalScript 
+	local script = Instance.new('LocalScript', OPEN)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Main.Visible = true
+		script.Parent.Visible = false
+	end)
+end
+coroutine.wrap(JVDWQ_fake_script)()
