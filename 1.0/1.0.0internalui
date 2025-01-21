@@ -236,7 +236,7 @@ local function SBHNRN_fake_script() -- EXE.LocalScript
 		--script.Parent.Parent.Parent.Parent.serverside:FireServer(script.Parent.Parent.Parent.ImageLabel.editorframe.source.Text)
 		-- this is for serverside (no i am not making a serverside executor i am gonna make a require thing u can use backdoors with)
 		
-		assert(loadstring(script.Parent.Parent.Parent.ImageLabel.editorframe.source.Text))
+		loadstring(script.Parent.Parent.Parent.ImageLabel.editorframe.source.Text)()
 	end)
 end
 coroutine.wrap(SBHNRN_fake_script)()
